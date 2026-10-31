@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --green: #25d366;
+  --green-dark: #128c7e;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* âncoras não ficam escondidas atrás do header fixo */
+}
+
+body {
+  background: #fafaf9;
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f3f4f6; }
+::-webkit-scrollbar-thumb { background: var(--green); border-radius: 99px; }
+
+/* Delays para animações escalonadas */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+.text-gradient {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Acessibilidade: respeita quem desativa animações no sistema */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
